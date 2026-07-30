@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { Exercise, MuscleGroup } from "../types";
-import { muscleGroupLabels, muscleGroupColors } from "../data/exercises";
+import { muscleGroupLabels, muscleGroupColors, allMuscleGroups } from "../data/exercises";
 
 type Props = {
   exercises: Exercise[];
@@ -8,20 +8,14 @@ type Props = {
   onToggle: (id: string) => void;
 };
 
-const muscleGroups: MuscleGroup[] = [
-  "chest", "back", "shoulders", "biceps", "triceps",
-  "legs", "glutes", "core", "cardio",
-];
-
 export function ExerciseSelector({ exercises, selectedIds, onToggle }: Props) {
   const [activeGroup, setActiveGroup] = useState<MuscleGroup>("chest");
-
   const filtered = exercises.filter((e) => e.muscleGroup === activeGroup);
 
   return (
     <div>
       <div className="flex flex-wrap gap-1 mb-3">
-        {muscleGroups.map((mg) => (
+        {allMuscleGroups.map((mg) => (
           <button
             key={mg}
             onClick={() => setActiveGroup(mg)}

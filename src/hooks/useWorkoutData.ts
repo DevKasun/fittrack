@@ -1,10 +1,10 @@
 import { useLocalStorage } from "./useLocalStorage";
-import { defaultExercises } from "../data/exercises";
+import { newExerciseTemplate } from "../data/exercises";
 import type { WorkoutData, WorkoutSession } from "../types";
 
 export function useWorkoutData() {
   const [data, setData] = useLocalStorage<WorkoutData>("fitness-tracker", {
-    exercises: defaultExercises,
+    exercises: newExerciseTemplate,
     sessions: [],
   });
 

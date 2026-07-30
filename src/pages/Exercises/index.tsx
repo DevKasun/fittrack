@@ -1,12 +1,7 @@
 import { useState } from "react";
 import type { MuscleGroup } from "../../types";
-import { muscleGroupLabels, muscleGroupColors } from "../../data/exercises";
+import { muscleGroupLabels, muscleGroupColors, allMuscleGroups } from "../../data/exercises";
 import { useWorkoutData } from "../../hooks/useWorkoutData";
-
-const muscleGroups: MuscleGroup[] = [
-  "chest", "back", "shoulders", "biceps", "triceps",
-  "legs", "glutes", "core", "cardio",
-];
 
 export default function ExerciseLibrary() {
   const { exercises, sessions } = useWorkoutData();
@@ -25,7 +20,7 @@ export default function ExerciseLibrary() {
       </div>
 
       <div className="flex flex-wrap gap-1">
-        {muscleGroups.map((mg) => (
+        {allMuscleGroups.map((mg) => (
           <button
             key={mg}
             onClick={() => setActiveGroup(mg)}

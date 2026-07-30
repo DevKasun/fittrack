@@ -1,4 +1,4 @@
-import type { Exercise } from "../types";
+import type { Exercise, MuscleGroup } from "../types";
 
 export const defaultExercises: Exercise[] = [
   { id: "bench-press", name: "Bench Press", muscleGroup: "chest", equipment: "Barbell" },
@@ -38,7 +38,40 @@ export const defaultExercises: Exercise[] = [
   { id: "rowing", name: "Rowing Machine", muscleGroup: "cardio", equipment: "Machine" },
 ];
 
-export const muscleGroupLabels: Record<string, string> = {
+export const newExerciseTemplate: Exercise[] = [
+  { id: "bench_press", name: "Barbell Bench Press", muscleGroup: "chest", equipment: "Barbell", primary: ["chest"], secondary: ["shoulders", "triceps"] },
+  { id: "incline_db_press", name: "Incline Dumbbell Press", muscleGroup: "chest", equipment: "Dumbbell", primary: ["chest"], secondary: ["shoulders"] },
+  { id: "pushup", name: "Push-Up", muscleGroup: "chest", equipment: "Bodyweight", primary: ["chest"], secondary: ["shoulders", "triceps", "abs"] },
+  { id: "dips", name: "Parallel Bar Dips", muscleGroup: "chest", equipment: "Bodyweight", primary: ["chest", "triceps"], secondary: ["shoulders"] },
+  { id: "pullup", name: "Pull-Up", muscleGroup: "back", equipment: "Bodyweight", primary: ["lats"], secondary: ["biceps", "traps"] },
+  { id: "barbell_row", name: "Barbell Row", muscleGroup: "back", equipment: "Barbell", primary: ["lats"], secondary: ["biceps", "lowerback", "traps"] },
+  { id: "lat_pulldown", name: "Lat Pulldown", muscleGroup: "back", equipment: "Machine", primary: ["lats"], secondary: ["biceps"] },
+  { id: "face_pull", name: "Face Pull", muscleGroup: "back", equipment: "Cable", primary: ["traps"], secondary: ["shoulders"] },
+  { id: "hyperextension", name: "Back Hyperextension", muscleGroup: "back", equipment: "Bodyweight", primary: ["lowerback"], secondary: ["glutes", "hamstrings"] },
+  { id: "overhead_press", name: "Overhead Press", muscleGroup: "shoulders", equipment: "Barbell", primary: ["shoulders"], secondary: ["triceps", "traps"] },
+  { id: "lateral_raise", name: "Lateral Raise", muscleGroup: "shoulders", equipment: "Dumbbell", primary: ["shoulders"], secondary: [] },
+  { id: "rear_delt_fly", name: "Rear Delt Fly", muscleGroup: "shoulders", equipment: "Dumbbell", primary: ["shoulders"], secondary: ["traps"] },
+  { id: "bicep_curl", name: "Dumbbell Bicep Curl", muscleGroup: "arms", equipment: "Dumbbell", primary: ["biceps"], secondary: ["forearms"] },
+  { id: "tricep_pushdown", name: "Tricep Pushdown", muscleGroup: "arms", equipment: "Cable", primary: ["triceps"], secondary: ["forearms"] },
+  { id: "hammer_curl", name: "Hammer Curl", muscleGroup: "arms", equipment: "Dumbbell", primary: ["biceps"], secondary: ["forearms"] },
+  { id: "wrist_curl", name: "Wrist Curl", muscleGroup: "arms", equipment: "Dumbbell", primary: ["forearms"], secondary: [] },
+  { id: "plank", name: "Plank", muscleGroup: "core", equipment: "Bodyweight", primary: ["abs"], secondary: ["obliques", "lowerback"] },
+  { id: "crunch", name: "Crunch", muscleGroup: "core", equipment: "Bodyweight", primary: ["abs"], secondary: [] },
+  { id: "russian_twist", name: "Russian Twist", muscleGroup: "core", equipment: "Bodyweight", primary: ["obliques"], secondary: ["abs"] },
+  { id: "hanging_raise", name: "Hanging Leg Raise", muscleGroup: "core", equipment: "Bodyweight", primary: ["abs"], secondary: ["obliques"] },
+  { id: "squat", name: "Barbell Squat", muscleGroup: "legs", equipment: "Barbell", primary: ["quads"], secondary: ["glutes", "hamstrings", "lowerback"] },
+  { id: "lunge", name: "Walking Lunge", muscleGroup: "legs", equipment: "Dumbbell", primary: ["quads", "glutes"], secondary: ["hamstrings"] },
+  { id: "leg_press", name: "Leg Press", muscleGroup: "legs", equipment: "Machine", primary: ["quads"], secondary: ["glutes", "hamstrings"] },
+  { id: "romanian_dl", name: "Romanian Deadlift", muscleGroup: "legs", equipment: "Barbell", primary: ["hamstrings"], secondary: ["glutes", "lowerback"] },
+  { id: "calf_raise", name: "Standing Calf Raise", muscleGroup: "legs", equipment: "Machine", primary: ["calves"], secondary: [] },
+  { id: "hip_thrust", name: "Barbell Hip Thrust", muscleGroup: "legs", equipment: "Barbell", primary: ["glutes"], secondary: ["hamstrings"] },
+  { id: "deadlift", name: "Deadlift", muscleGroup: "full_body", equipment: "Barbell", primary: ["hamstrings", "lowerback"], secondary: ["glutes", "lats", "traps", "forearms"] },
+  { id: "burpee", name: "Burpee", muscleGroup: "full_body", equipment: "Bodyweight", primary: ["chest", "quads"], secondary: ["shoulders", "abs", "calves"] },
+  { id: "kb_swing", name: "Kettlebell Swing", muscleGroup: "full_body", equipment: "Kettlebell", primary: ["glutes", "hamstrings"], secondary: ["lowerback", "shoulders"] },
+  { id: "clean_and_press", name: "Clean and Press", muscleGroup: "full_body", equipment: "Barbell", primary: ["shoulders", "quads"], secondary: ["traps", "hamstrings", "lowerback", "abs"] },
+];
+
+export const muscleGroupLabels: Record<MuscleGroup, string> = {
   chest: "Chest",
   back: "Back",
   shoulders: "Shoulders",
@@ -48,9 +81,11 @@ export const muscleGroupLabels: Record<string, string> = {
   glutes: "Glutes",
   core: "Core",
   cardio: "Cardio",
+  arms: "Arms",
+  full_body: "Full Body",
 };
 
-export const muscleGroupColors: Record<string, string> = {
+export const muscleGroupColors: Record<MuscleGroup, string> = {
   chest: "bg-red-500",
   back: "bg-blue-500",
   shoulders: "bg-yellow-500",
@@ -60,4 +95,20 @@ export const muscleGroupColors: Record<string, string> = {
   glutes: "bg-pink-500",
   core: "bg-teal-500",
   cardio: "bg-gray-500",
+  arms: "bg-amber-500",
+  full_body: "bg-indigo-500",
 };
+
+export const allMuscleGroups: MuscleGroup[] = [
+  "chest",
+  "back",
+  "shoulders",
+  "arms",
+  "biceps",
+  "triceps",
+  "legs",
+  "glutes",
+  "core",
+  "cardio",
+  "full_body",
+];
