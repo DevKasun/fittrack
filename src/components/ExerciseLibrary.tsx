@@ -67,7 +67,7 @@ export function ExerciseLibrary() {
       </div>
 
       <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:gap-6">
-        <aside className="order-1 w-full lg:order-2 lg:sticky lg:top-4 lg:w-[350px] lg:shrink-0">
+        <aside className="order-1 w-full lg:order-2 lg:sticky lg:top-4 lg:w-87.5 lg:shrink-0">
           <div className="rounded-2xl border border-gray-800 bg-gray-900/70 p-4">
             <BodyMap
               view={view}

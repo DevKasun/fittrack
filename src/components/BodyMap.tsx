@@ -203,7 +203,7 @@ export function BodyMap({
         ))}
       </div>
 
-      <div className="mx-auto w-full max-w-[230px]">
+      <div className="mx-auto w-full max-w-57.5">
         <svg viewBox="0 0 240 520" role="img" aria-label={`${view} muscle map`} className="block h-auto w-full select-none">
           {silhouette}
           {view === "front" ? frontMuscles : backMuscles}
